@@ -16,7 +16,7 @@ func main() {
 	app := NewApp()
 
 	err := wails.Run(&options.App{
-		Title:            "高科大校務建言小助手 (NKUST Suggest Desktop)",
+		Title:            "高科大校務建言桌面版",
 		Width:            940,
 		Height:           760,
 		MinWidth:         860,

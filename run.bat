@@ -1,2 +1,3 @@
 @echo off
-start "" "%~dp0NKUST_Suggest_Desktop.exe"
+start "" "%~dp0高科大校務建言桌面版.exe"
+
