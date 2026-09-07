@@ -1,0 +1,20 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "NKUST_Suggest_Desktop",
+  "outputfilename": "NKUST_Suggest_Desktop",
+  "frontend:install": "",
+  "frontend:build": "",
+  "frontend:dev:watcher": "",
+  "frontend:dev:serverUrl": "",
+  "author": {
+    "name": "NKUST Assistant",
+    "email": "student@nkust.edu.tw"
+  },
+  "info": {
+    "companyName": "NKUST",
+    "productName": "高科大校務建言小助手",
+    "productVersion": "1.0.0",
+    "copyright": "Copyright 2026",
+    "comments": "高科大校務建言自動提交與信件驗證桌面端"
+  }
+}

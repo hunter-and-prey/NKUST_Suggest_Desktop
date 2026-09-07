@@ -1,0 +1,29 @@
+# Binaries & Compressed packages
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.zip
+*.tar.gz
+*.7z
+NKUST_Suggest_Desktop.exe
+
+# Local configs, credentials & personal data
+user_config.json
+*.env
+*.env.*
+token.json
+credentials.json
+*.key
+*.pem
+*.log
+
+# Build & OS Artifacts
+build/bin/
+build/
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

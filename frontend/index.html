@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' ipc:; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' ipc:;" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>高科大校務建言小助手</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 頂部品牌導覽列 -->
+  <header class="app-header">
+    <div class="brand">
+      <div class="logo-badge">NKUST</div>
+      <div class="header-title">校務建言小助手</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <button id="btnThemeToggle" class="theme-toggle-btn" title="切換深色/淺色主題">
+        <span id="themeIcon">🌙</span>
+      </button>
+      <div class="header-status">
+        <span class="status-dot"></span>
+        <span id="headerStatusText">連線就緒</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 頁面功能分頁切換 -->
+  <nav class="nav-tabs">
+    <button class="tab-btn active" data-tab="tab-compose">
+      <span>📝</span> 撰寫與送出建言
+    </button>
+    <button class="tab-btn" data-tab="tab-settings">
+      <span>⚙️</span> 常駐個資與信箱授權
+    </button>
+  </nav>
+
+  <!-- 主內容容器 -->
+  <main class="main-content">
+    
+    <!-- 分頁 1: 撰寫建言 -->
+    <section id="tab-compose" class="tab-pane active">
+      <div class="card">
+        <div class="card-title">
+          <span>📌</span> 建言基本資訊
+        </div>
+
+        <div class="form-row">
+          <label class="form-label" for="inputSubject">
+            <span>建言主旨 (必填)</span>
+            <span class="label-counter" id="subjectCounter">0 / 20 字</span>
+          </label>
+          <input type="text" id="inputSubject" class="input-text" placeholder="請簡要敘述建言核心主旨 (最多20字)" maxlength="20" />
+        </div>
+
+        <div class="form-row">
+          <label class="form-label" for="selectUnit">
+            <span>受理單位 (必選)</span>
+          </label>
+          <select id="selectUnit" class="input-select">
+            <option value="">載入單位清單中...</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>💬</span> 建言詳細內容
+        </div>
+
+        <div class="form-row">
+          <label class="form-label" for="inputContent">
+            <span>內容說明 (限1000字，包含校區、人、事、時、地、物)</span>
+            <span class="label-counter" id="contentCounter">剩餘 1000 字</span>
+          </label>
+          <textarea id="inputContent" class="input-textarea" placeholder="請完整說明反映事項之所屬校區、人、事、時、地、物，俾利承辦單位有效處理及回覆..."></textarea>
+          <div class="hint-text">依高科大建言系統規範：內容每處換行自動以 2 個字元計算。</div>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label">
+            <span>附件檔案 (最多3個，支援 .pdf, .docx, .txt, 圖片，單檔上限 30MB)</span>
+          </label>
+          <div class="file-dropzone" id="btnChooseFiles">
+            <div class="dropzone-icon">📎</div>
+            <div class="dropzone-text">點擊選取檔案 (支援多選)</div>
+          </div>
+          <div class="file-tags-list" id="fileTagsContainer"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 分頁 2: 常駐個資與信箱設定 -->
+    <section id="tab-settings" class="tab-pane">
+      <div class="card">
+        <div class="card-title">
+          <span>👤</span> 建言人常駐個資 (本地自動記憶，免重複輸入)
+        </div>
+
+        <div class="form-row">
+          <label class="form-label" for="inputName">姓名 (必填)</label>
+          <input type="text" id="inputName" class="input-text" placeholder="例如: 王小明" maxlength="10" />
+        </div>
+
+        <div class="form-row">
+          <label class="form-label">身分別 (必填)</label>
+          <div class="radio-group" id="guestTypesContainer"></div>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label" for="inputEmail">接收確認信之信箱 (必填)</label>
+          <input type="email" id="inputEmail" class="input-text" placeholder="例如: C110123456@nkust.edu.tw 或個人信箱" />
+          <div class="hint-text">系統將發送一封關鍵確認信至此信箱，完成信箱驗證後建言始正式生效。</div>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label" for="inputPhone">聯絡電話 (必填)</label>
+          <input type="tel" id="inputPhone" class="input-text" placeholder="例如: 0912345678" maxlength="10" />
+        </div>
+
+        <div class="form-row">
+          <label class="form-label">個資是否保密</label>
+          <div class="radio-group" id="secrecyTypesContainer"></div>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label">結案是否公開查詢</label>
+          <div class="radio-group" id="doneOpenTypesContainer"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>🔐</span> 高科大學生 Google 信箱自動驗證授權
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="inputMailPassword">Google 應用程式密碼 (App Password)</label>
+          <input type="password" id="inputMailPassword" class="input-text" placeholder="16碼 Google 應用程式密碼 (例如: abcd efgh ijkl mnop)" />
+          <div class="hint-text">
+            若使用 Google 託管之學生信箱，請至 Google 帳戶安全性建立「應用程式密碼」填入。密碼僅於本機記憶體驗證，安全保密。
+          </div>
+        </div>
+
+        <div style="margin-top: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+          <button id="btnCheckLatestEmail" class="btn-secondary" style="border-color: #3b82f6; color: #2563eb;">
+            <span>🔍</span> 立即檢查信箱並自動確認
+          </button>
+          <button id="btnSaveConfig" class="btn-secondary">💾 儲存設定至本機</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 底部操作與即時狀態區 -->
+  <footer class="app-footer">
+    <div class="progress-container" id="progressContainer">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="footer-actions">
+      <div class="action-status" id="actionStatus">
+        <span>✨ 填寫完成後點擊右方按鈕即可一鍵提交與驗證</span>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button id="btnCancelVerify" class="btn-secondary" style="display: none; color: #ef4444;">取消監聽</button>
+        <button id="btnSubmit" class="btn-cta">
+          <span>🚀</span> 一鍵送出建言並自動確認
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
