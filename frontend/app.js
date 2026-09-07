@@ -57,11 +57,42 @@ function setupTabs() {
 }
 
 // 即時字數統計、換行折算與草稿自動暫存
-function setupCounters() {
+function updateSubjectCount() {
   const inputSubject = document.getElementById('inputSubject');
   const subjectCounter = document.getElementById('subjectCounter');
+  if (!inputSubject || !subjectCounter) return;
+  const len = inputSubject.value.length;
+  subjectCounter.textContent = `${len} / 20 字`;
+  if (len >= 20) {
+    subjectCounter.className = 'label-counter limit-near';
+  } else {
+    subjectCounter.className = 'label-counter';
+  }
+}
+
+function updateContentCount() {
   const inputContent = document.getElementById('inputContent');
   const contentCounter = document.getElementById('contentCounter');
+  if (!inputContent || !contentCounter) return;
+  const val = inputContent.value;
+  const calcLen = val.replace(/\r\n/g, "  ").replace(/\n/g, "  ").replace(/\r/g, "  ").length;
+  const remain = 1000 - calcLen;
+
+  if (remain < 0) {
+    contentCounter.textContent = `已超出 ${-remain} 字！(換行折算後: ${calcLen}/1000)`;
+    contentCounter.className = 'label-counter limit-over';
+  } else if (remain < 100) {
+    contentCounter.textContent = `剩餘 ${remain} 字 (換行折算後: ${calcLen}/1000)`;
+    contentCounter.className = 'label-counter limit-near';
+  } else {
+    contentCounter.textContent = `剩餘 ${remain} 字`;
+    contentCounter.className = 'label-counter';
+  }
+}
+
+function setupCounters() {
+  const inputSubject = document.getElementById('inputSubject');
+  const inputContent = document.getElementById('inputContent');
 
   // 自動恢復草稿
   const savedSubject = localStorage.getItem('draft_subject');
@@ -72,33 +103,6 @@ function setupCounters() {
   if (savedContent && !inputContent.value) {
     inputContent.value = savedContent;
   }
-
-  const updateSubjectCount = () => {
-    const len = inputSubject.value.length;
-    subjectCounter.textContent = `${len} / 20 字`;
-    if (len >= 20) {
-      subjectCounter.className = 'label-counter limit-near';
-    } else {
-      subjectCounter.className = 'label-counter';
-    }
-  };
-
-  const updateContentCount = () => {
-    const val = inputContent.value;
-    const calcLen = val.replace(/\r\n/g, "  ").replace(/\n/g, "  ").replace(/\r/g, "  ").length;
-    const remain = 1000 - calcLen;
-
-    if (remain < 0) {
-      contentCounter.textContent = `已超出 ${-remain} 字！(換行折算後: ${calcLen}/1000)`;
-      contentCounter.className = 'label-counter limit-over';
-    } else if (remain < 100) {
-      contentCounter.textContent = `剩餘 ${remain} 字 (換行折算後: ${calcLen}/1000)`;
-      contentCounter.className = 'label-counter limit-near';
-    } else {
-      contentCounter.textContent = `剩餘 ${remain} 字`;
-      contentCounter.className = 'label-counter';
-    }
-  };
 
   updateSubjectCount();
   updateContentCount();
@@ -385,9 +389,20 @@ async function handleSubmit() {
         localStorage.removeItem('draft_content');
         selectedFiles = [];
         renderSelectedFiles();
+        // 立即同步重設剩餘字數指示器，避免數字停留在送出前的狀態
+        updateSubjectCount();
+        updateContentCount();
       }
     } else {
       alert("模擬提交成功！(需於原生視窗中發送實體 HTTP 與信箱連線)");
+      document.getElementById('inputSubject').value = '';
+      document.getElementById('inputContent').value = '';
+      localStorage.removeItem('draft_subject');
+      localStorage.removeItem('draft_content');
+      selectedFiles = [];
+      renderSelectedFiles();
+      updateSubjectCount();
+      updateContentCount();
     }
   } catch (err) {
     alert("執行過程發生錯誤: " + err);

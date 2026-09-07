@@ -93,6 +93,18 @@ body {
   gap: 12px;
 }
 
+.app-header-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease;
+}
+
+.app-header-icon:hover {
+  transform: scale(1.08) rotate(-3deg);
+}
+
 .logo-badge {
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.25);
