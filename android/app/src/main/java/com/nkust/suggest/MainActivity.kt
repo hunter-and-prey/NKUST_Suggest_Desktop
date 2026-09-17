@@ -22,6 +22,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.ChatBubbleOutline
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.Tune
 import androidx.compose.material3.Icon
@@ -46,6 +47,7 @@ import com.nkust.suggest.data.api.NkustApiClient
 import com.nkust.suggest.data.storage.SecurePreferencesManager
 import com.nkust.suggest.ui.components.AppHeader
 import com.nkust.suggest.ui.screens.ComposeScreen
+import com.nkust.suggest.ui.screens.FeedbackScreen
 import com.nkust.suggest.ui.screens.SettingsScreen
 import com.nkust.suggest.ui.theme.NKUSTSuggestTheme
 import com.nkust.suggest.ui.theme.PrimaryBlue
@@ -108,6 +110,9 @@ class MainActivity : ComponentActivity() {
                                 currentLang = currentLang,
                                 prefsManager = prefsManager
                             )
+                            2 -> FeedbackScreen(
+                                currentLang = currentLang
+                            )
                         }
                     }
                 }
@@ -130,7 +135,7 @@ fun FloatingCapsuleBottomBar(
         modifier = Modifier
             .fillMaxWidth()
             .navigationBarsPadding()
-            .padding(horizontal = 24.dp, vertical = 12.dp),
+            .padding(horizontal = 12.dp, vertical = 10.dp),
         contentAlignment = Alignment.Center
     ) {
         // 浮動大膠囊主體
@@ -149,9 +154,9 @@ fun FloatingCapsuleBottomBar(
                     color = MaterialTheme.colorScheme.outline.copy(alpha = 0.35f),
                     shape = CircleShape
                 )
-                .padding(horizontal = 8.dp, vertical = 6.dp),
+                .padding(horizontal = 6.dp, vertical = 5.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(6.dp)
+            horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             // 分頁 1: 撰寫建言
             CapsuleNavItem(
@@ -175,6 +180,18 @@ fun FloatingCapsuleBottomBar(
                     else -> "常駐設定"
                 },
                 onClick = { onTabSelected(1) }
+            )
+
+            // 分頁 3: 高科iAI問題回饋
+            CapsuleNavItem(
+                isSelected = selectedTab == 2,
+                icon = Icons.Outlined.ChatBubbleOutline,
+                label = when (currentLang) {
+                    "en" -> "Feedback"
+                    "ja" -> "問題報告"
+                    else -> "高科iAI問題回饋"
+                },
+                onClick = { onTabSelected(2) }
             )
         }
     }
@@ -204,7 +221,7 @@ private fun CapsuleNavItem(
             .clip(CircleShape)
             .background(bgColor)
             .clickable { onClick() }
-            .padding(horizontal = 18.dp, vertical = 10.dp),
+            .padding(horizontal = 12.dp, vertical = 9.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
@@ -212,13 +229,13 @@ private fun CapsuleNavItem(
             imageVector = icon,
             contentDescription = label,
             tint = contentColor,
-            modifier = Modifier.size(18.dp)
+            modifier = Modifier.size(17.dp)
         )
-        Spacer(modifier = Modifier.width(8.dp))
+        Spacer(modifier = Modifier.width(6.dp))
         Text(
             text = label,
             color = contentColor,
-            fontSize = 14.sp,
+            fontSize = 12.5.sp,
             fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium
         )
     }
