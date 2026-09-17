@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">NKUST Suggest</string>
+    <string name="badge_lang">EN</string>
+    <string name="title_app">NKUST Suggest</string>
+    <string name="status_ready">Connected &amp; Ready</string>
+    <string name="status_sending">Submitting suggestion...</string>
+    <string name="status_verifying">Waiting for verification code...</string>
+    
+    <string name="tab_compose">Compose</string>
+    <string name="tab_settings">Settings</string>
+    
+    <!-- Compose Card -->
+    <string name="card_basic_info">Basic Information</string>
+    <string name="label_subject">Subject (Required)</string>
+    <string name="placeholder_subject">Briefly describe the topic (max 20 chars)</string>
+    <string name="label_unit">Recipient Department (Required)</string>
+    <string name="select_unit_prompt">Select Department</string>
+    
+    <string name="card_content_info">Detailed Content</string>
+    <string name="label_content">Content (Max 1000 words)</string>
+    <string name="placeholder_content">Please describe campus, people, events, time, and location...</string>
+    <string name="hint_content_calc">Per NKUST policy: each line break counts as 2 characters.</string>
+    <string name="counter_remain">%d chars left</string>
+    <string name="counter_over">%d chars exceeded</string>
+
+    <string name="btn_submit_cta">Submit &amp; Auto-Confirm</string>
+
+    <!-- Settings Card -->
+    <string name="card_user_info">User Profile (Local Encrypted)</string>
+    <string name="label_name">Name (Required)</string>
+    <string name="placeholder_name">e.g. John Doe</string>
+    <string name="label_guest_type">Identity (Required)</string>
+    <string name="label_email">Verification Email (Required)</string>
+    <string name="placeholder_email">e.g. C110123456@nkust.edu.tw</string>
+    <string name="hint_email">Verification email will be sent here to validate the suggestion.</string>
+    <string name="label_phone">Phone (Required)</string>
+    <string name="placeholder_phone">e.g. 0912345678</string>
+    <string name="label_secrecy">Confidentiality</string>
+    <string name="label_done_open">Public Inquiry on Close</string>
+
+    <string name="card_auth_info">Google Mail Auto-Auth</string>
+    <string name="label_mail_password">Google App Password (16 chars)</string>
+    <string name="placeholder_mail_password">16-char App Password</string>
+    <string name="hint_mail_password">Generate an App Password in your Google Account Security settings. Stored securely on device only.</string>
+    
+    <string name="btn_save_settings">Save to Device</string>
+    <string name="btn_manual_verify">Manual Code Entry</string>
+    <string name="msg_saved_success">Profile and auth settings securely stored!</string>
+    <string name="dialog_verify_title">Enter Verification Code</string>
+    <string name="dialog_verify_hint">Check your email and enter the 6-digit verification code:</string>
+    <string name="btn_confirm">Confirm</string>
+    <string name="btn_cancel">Cancel</string>
+</resources>

@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">高科大校務建言</string>
+    <string name="badge_lang">中</string>
+    <string name="title_app">高科大校務建言</string>
+    <string name="status_ready">連線就緒</string>
+    <string name="status_sending">正在送出建言...</string>
+    <string name="status_verifying">正在自動監聽驗證碼...</string>
+    
+    <string name="tab_compose">撰寫建言</string>
+    <string name="tab_settings">常駐設定</string>
+    
+    <!-- 撰寫建言卡片 -->
+    <string name="card_basic_info">建言基本資訊</string>
+    <string name="label_subject">建言主旨 (必填)</string>
+    <string name="placeholder_subject">請簡要敘述建言核心主旨 (最多20字)</string>
+    <string name="label_unit">受理單位 (必選)</string>
+    <string name="select_unit_prompt">請選擇受理單位</string>
+    
+    <string name="card_content_info">建言詳細內容</string>
+    <string name="label_content">內容說明 (限1000字，含校區、人、事、時、地、物)</string>
+    <string name="placeholder_content">請完整說明反映事項之所屬校區、人、事、時、地、物，俾利承辦單位有效處理及回覆...</string>
+    <string name="hint_content_calc">依高科大建言系統規範：每處換行以 2 個字元計算。</string>
+    <string name="counter_remain">剩餘 %d 字</string>
+    <string name="counter_over">超出 %d 字</string>
+
+    <string name="btn_submit_cta">一鍵送出建言並自動確認</string>
+
+    <!-- 常駐個資卡片 -->
+    <string name="card_user_info">建言人常駐個資 (本地安全記憶)</string>
+    <string name="label_name">姓名 (必填)</string>
+    <string name="placeholder_name">例如: 王小明</string>
+    <string name="label_guest_type">身分別 (必填)</string>
+    <string name="label_email">接收確認信之信箱 (必填)</string>
+    <string name="placeholder_email">例如: C110123456@nkust.edu.tw</string>
+    <string name="hint_email">系統發送之關鍵確認信將寄送至此信箱，完成驗證始正式受理。</string>
+    <string name="label_phone">聯絡電話 (必填)</string>
+    <string name="placeholder_phone">例如: 0912345678</string>
+    <string name="label_secrecy">個資是否保密</string>
+    <string name="label_done_open">結案是否公開查詢</string>
+
+    <string name="card_auth_info">Google 學生信箱自動驗證授權</string>
+    <string name="label_mail_password">Google 應用程式密碼 (16碼 App Password)</string>
+    <string name="placeholder_mail_password">16碼 Google 應用程式密碼</string>
+    <string name="hint_mail_password">若使用 Google 託管學生信箱，請至 Google 帳戶安全性建立應用程式密碼。密碼僅透過 Android 系統硬體金鑰層加密儲存於本機，絕不上傳第三方。</string>
+    
+    <string name="btn_save_settings">儲存設定至手機</string>
+    <string name="btn_manual_verify">手動輸入驗證碼</string>
+    <string name="msg_saved_success">個資與授權設定已安全加密儲存！</string>
+    <string name="dialog_verify_title">請輸入驗證碼</string>
+    <string name="dialog_verify_hint">請至信箱收取確認信，並輸入信中包含的 6 位數驗證碼：</string>
+    <string name="btn_confirm">確認送出</string>
+    <string name="btn_cancel">取消</string>
+</resources>

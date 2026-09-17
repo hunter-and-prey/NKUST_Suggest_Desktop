@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">高科大校務提言</string>
+    <string name="badge_lang">日</string>
+    <string name="title_app">高科大校務提言</string>
+    <string name="status_ready">接続完了・待機中</string>
+    <string name="status_sending">提言を送信中...</string>
+    <string name="status_verifying">認証コードを受信待機中...</string>
+    
+    <string name="tab_compose">提言作成</string>
+    <string name="tab_settings">登録設定</string>
+    
+    <!-- 提言作成カード -->
+    <string name="card_basic_info">提言基本情報</string>
+    <string name="label_subject">提言件名 (必須)</string>
+    <string name="placeholder_subject">提言の主旨を簡潔に入力 (最大20文字)</string>
+    <string name="label_unit">受付窓口 (必須)</string>
+    <string name="select_unit_prompt">窓口を選択してください</string>
+    
+    <string name="card_content_info">提言詳細内容</string>
+    <string name="label_content">内容説明 (最大1000文字)</string>
+    <string name="placeholder_content">キャンパス、関係者、事象、日時、場所などを具体的に記載してください...</string>
+    <string name="hint_content_calc">NKUSTシステム規約：改行1回につき2文字として換算されます。</string>
+    <string name="counter_remain">残り %d 文字</string>
+    <string name="counter_over">超過 %d 文字</string>
+
+    <string name="btn_submit_cta">提言を送信して自動確認</string>
+
+    <!-- 個人設定カード -->
+    <string name="card_user_info">基本個人情報 (ローカル暗号化保存)</string>
+    <string name="label_name">氏名 (必須)</string>
+    <string name="placeholder_name">例: 山田 太郎</string>
+    <string name="label_guest_type">身分別 (必須)</string>
+    <string name="label_email">認証メール受信先 (必須)</string>
+    <string name="placeholder_email">例: C110123456@nkust.edu.tw</string>
+    <string name="hint_email">システムから送信される認証メールを受信して提言が受理されます。</string>
+    <string name="label_phone">電話番号 (必須)</string>
+    <string name="placeholder_phone">例: 0912345678</string>
+    <string name="label_secrecy">個人情報の保護設定</string>
+    <string name="label_done_open">完了後の公開可否</string>
+
+    <string name="card_auth_info">Google メール自動認証設定</string>
+    <string name="label_mail_password">Google アプリパスワード (16文字)</string>
+    <string name="placeholder_mail_password">16桁の Google アプリパスワード</string>
+    <string name="hint_mail_password">Google アカウントのセキュリティ設定で発行したアプリ パスワードを入力してください。端末内でのみ暗号化保持されます。</string>
+    
+    <string name="btn_save_settings">設定を端末に保存</string>
+    <string name="btn_manual_verify">手動で認証コードを入力</string>
+    <string name="msg_saved_success">登録情報が安全に暗号化保存されました！</string>
+    <string name="dialog_verify_title">認証コードの入力</string>
+    <string name="dialog_verify_hint">受信メール内の 6 桁の認証コードを入力してください：</string>
+    <string name="btn_confirm">確認・送信</string>
+    <string name="btn_cancel">キャンセル</string>
+</resources>

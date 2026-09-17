@@ -1,0 +1,40 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Background Circle -->
+    <path
+        android:fillColor="#1E40AF"
+        android:pathData="M54,4 C81.6,4 104,26.4 104,54 C104,81.6 81.6,104 54,104 C26.4,104 4,81.6 4,54 C4,26.4 26.4,4 54,4 Z" />
+    
+    <!-- Inner Ring Accent -->
+    <path
+        android:strokeColor="#60A5FA"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M54,10 C78.3,10 98,29.7 98,54 C98,78.3 78.3,98 54,98 C29.7,98 10,78.3 10,54 C10,29.7 29.7,10 54,10 Z" />
+
+    <!-- Chat / Suggestion Bubble Body -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M28,34 C28,29.6 31.6,26 36,26 L72,26 C76.4,26 80,29.6 80,34 L80,62 C80,66.4 76.4,70 72,70 L48,70 L34,82 L34,70 L36,70 C31.6,70 28,66.4 28,62 Z" />
+
+    <!-- Horizontal Lines representing Text & Thoughts -->
+    <path
+        android:fillColor="#1E40AF"
+        android:pathData="M38,38 L70,38 A2,2 0 0 1 70,42 L38,42 A2,2 0 0 1 38,38 Z" />
+    <path
+        android:fillColor="#1E40AF"
+        android:pathData="M38,47 L64,47 A2,2 0 0 1 64,51 L38,51 A2,2 0 0 1 38,47 Z" />
+    <path
+        android:fillColor="#EA580C"
+        android:pathData="M38,56 L54,56 A2,2 0 0 1 54,60 L38,60 A2,2 0 0 1 38,56 Z" />
+
+    <!-- Sparkle / Pen Accent in Orange -->
+    <path
+        android:fillColor="#F97316"
+        android:pathData="M70,52 L74,56 L70,60 L66,56 Z" />
+
+</vector>
