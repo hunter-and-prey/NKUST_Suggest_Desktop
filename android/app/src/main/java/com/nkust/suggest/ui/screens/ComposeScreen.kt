@@ -384,9 +384,9 @@ fun ComposeScreen(
                     Spacer(modifier = Modifier.width(7.dp))
                     Text(
                         text = when (currentLang) {
-                            "en" -> "Per campus policy, each line break is calculated as 2 characters."
-                            "ja" -> "規約に基づき改行1回につき2文字として計算されます。"
-                            else -> "依高科大建言規範，每處換行自動以 2 個字元計算。"
+                            "en" -> "Per campus rules: text is 1:1, only line breaks count as 2 characters."
+                            "ja" -> "本校規定：文字は1:1計算（改行のみ2文字として計算されます）。"
+                            else -> "依校務規範：中文字與英數字均為 1:1 計算，僅換行折算 2 字元。"
                         },
                         fontSize = 11.5.sp,
                         color = MaterialTheme.colorScheme.onSurfaceVariant

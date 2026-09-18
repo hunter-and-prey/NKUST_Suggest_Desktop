@@ -19,7 +19,7 @@
     <string name="card_content_info">提言詳細内容</string>
     <string name="label_content">内容説明 (最大1000文字)</string>
     <string name="placeholder_content">キャンパス、関係者、事象、日時、場所などを具体的に記載してください...</string>
-    <string name="hint_content_calc">NKUSTシステム規約：改行1回につき2文字として換算されます。</string>
+    <string name="hint_content_calc">本校規定：文字は1:1計算（改行のみ2文字として計算されます）。</string>
     <string name="counter_remain">残り %d 文字</string>
     <string name="counter_over">超過 %d 文字</string>
 

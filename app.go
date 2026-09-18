@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net/url"
 	"strings"
+	"unicode/utf8"
 
 	"NKUST_Suggest_Desktop/pkg/config"
 	"NKUST_Suggest_Desktop/pkg/constants"
@@ -152,8 +153,8 @@ func (a *App) SubmitSuggestion(req models.SubmitRequest, mailUser, mailPassword 
 		})
 	}
 
-	// 1. 驗證字數規則 (以高科大標準：換行折算 2 字元)
-	contentCalc := len(strings.ReplaceAll(strings.ReplaceAll(req.MessageContent, "\r\n", "  "), "\n", "  "))
+	// 1. 驗證字數規則 (以高科大標準：中文字與英數字 1:1，換行折算 2 字元)
+	contentCalc := utf8.RuneCountInString(strings.ReplaceAll(strings.ReplaceAll(req.MessageContent, "\r\n", "  "), "\n", "  "))
 	if contentCalc > 1000 {
 		return models.OperationResponse{
 			Success: false,

@@ -19,7 +19,7 @@
     <string name="card_content_info">Detailed Content</string>
     <string name="label_content">Content (Max 1000 words)</string>
     <string name="placeholder_content">Please describe campus, people, events, time, and location...</string>
-    <string name="hint_content_calc">Per NKUST policy: each line break counts as 2 characters.</string>
+    <string name="hint_content_calc">Per campus rules: text is 1:1, only line breaks count as 2 characters.</string>
     <string name="counter_remain">%d chars left</string>
     <string name="counter_over">%d chars exceeded</string>
 

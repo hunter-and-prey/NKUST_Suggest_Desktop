@@ -19,7 +19,7 @@
     <string name="card_content_info">建言詳細內容</string>
     <string name="label_content">內容說明 (限1000字，含校區、人、事、時、地、物)</string>
     <string name="placeholder_content">請完整說明反映事項之所屬校區、人、事、時、地、物，俾利承辦單位有效處理及回覆...</string>
-    <string name="hint_content_calc">依高科大建言系統規範：每處換行以 2 個字元計算。</string>
+    <string name="hint_content_calc">依校務規範：中文字與英數字均為 1:1 計算，僅換行折算 2 字元。</string>
     <string name="counter_remain">剩餘 %d 字</string>
     <string name="counter_over">超出 %d 字</string>
 
