@@ -521,6 +521,29 @@ fun ComposeScreen(
             }
         }
 
+        // 取消等待輔助按鈕：若自動搜尋過久，使用者可自由切換為手動確認模式
+        if (isSubmitting) {
+            TextButton(
+                onClick = {
+                    isSubmitting = false
+                    submitProgressMsg = "已停止自動搜尋確認信，請自行至學校信箱點擊確認信。"
+                    onStatusChange("待手動確認")
+                    Toast.makeText(context, "已停止自動搜尋，請前往信箱點擊確認信！", Toast.LENGTH_LONG).show()
+                },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = when (currentLang) {
+                        "en" -> "Stop Waiting & Check Mailbox Manually"
+                        "ja" -> "待機を中止して手動でメールを確認する"
+                        else -> "取消等待，改為自行前往信箱手動確認"
+                    },
+                    fontSize = 12.5.sp,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+
         // UX Persuasion: 安全背書承諾 (Trust Signal)
         Row(
             modifier = Modifier
